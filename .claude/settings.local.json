@@ -5,7 +5,10 @@
       "Bash(swift build)",
       "Bash(swift build:*)",
       "Bash(swift run:*)",
-      "Bash(swift test:*)"
+      "Bash(swift test:*)",
+      "WebFetch(domain:swiftpackageindex.com)",
+      "Bash(swift package:*)",
+      "Bash(gh auth:*)"
     ],
     "deny": [],
     "ask": []
