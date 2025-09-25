@@ -1,0 +1,125 @@
+version: "1.0"
+metadata:
+  author: "IntentKit Examples"
+  bundleIdentifier: "com.example.intentkit"
+  targetName: "ExampleApp"
+  importStatements:
+    - Foundation
+    - CoreData
+
+intents:
+  - name: SendMessageIntent
+    description: Send a message to a contact
+    category: communication
+    parameters:
+      - name: recipient
+        type: String
+        description: Message recipient
+        isOptional: false
+        validation:
+          minLength: 1
+          maxLength: 100
+      - name: message
+        type: String
+        description: Message content
+        isOptional: false
+        validation:
+          minLength: 1
+          maxLength: 500
+      - name: attachmentURL
+        type: URL
+        description: Optional attachment
+        isOptional: true
+    availability:
+      iOS: "16.0"
+      macOS: "13.0"
+
+  - name: CreateReminderIntent
+    description: Create a new reminder
+    category: productivity
+    parameters:
+      - name: title
+        type: String
+        description: Reminder title
+        isOptional: false
+      - name: dueDate
+        type: Date
+        description: When the reminder is due
+        isOptional: false
+      - name: priority
+        type: String
+        description: Priority level
+        isOptional: true
+        defaultValue: "\"medium\""
+        validation:
+          allowedValues: ["low", "medium", "high", "urgent"]
+      - name: notes
+        type: String
+        description: Additional notes
+        isOptional: true
+
+  - name: PlayMusicIntent
+    description: Play music by artist or playlist
+    category: media
+    returnType: "some ProvidesDialog"
+    parameters:
+      - name: searchQuery
+        type: String
+        description: Artist, song, or playlist name
+        isOptional: false
+      - name: shuffleMode
+        type: Bool
+        description: Enable shuffle
+        isOptional: true
+        defaultValue: "false"
+      - name: repeatMode
+        type: String
+        description: Repeat mode
+        isOptional: true
+        defaultValue: "\"off\""
+        validation:
+          allowedValues: ["off", "one", "all"]
+
+  - name: SetTimerIntent
+    description: Set a timer for a specific duration
+    category: utilities
+    parameters:
+      - name: duration
+        type: Int
+        description: Timer duration in seconds
+        isOptional: false
+        validation:
+          minValue: 1
+          maxValue: 86400
+      - name: label
+        type: String
+        description: Timer label
+        isOptional: true
+      - name: sound
+        type: String
+        description: Alert sound
+        isOptional: true
+        defaultValue: "\"default\""
+
+  - name: TranslateTextIntent
+    description: Translate text between languages
+    category: utilities
+    parameters:
+      - name: text
+        type: String
+        description: Text to translate
+        isOptional: false
+        validation:
+          minLength: 1
+          maxLength: 5000
+      - name: sourceLanguage
+        type: String
+        description: Source language code
+        isOptional: true
+        defaultValue: "\"auto\""
+      - name: targetLanguage
+        type: String
+        description: Target language code
+        isOptional: false
+        validation:
+          regex: "^[a-z]{2}(-[A-Z]{2})?$"
