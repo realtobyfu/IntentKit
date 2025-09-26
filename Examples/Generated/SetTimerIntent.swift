@@ -1,7 +1,6 @@
 import AppIntents
-import Foundation
-import Foundation
 import CoreData
+import Foundation
 
 struct SetTimerIntent: AppIntent {
     static var title: LocalizedStringResource = "Set a timer for a specific duration"
@@ -29,7 +28,7 @@ struct SetTimerIntent: AppIntent {
             }
         }
 
-        // TODO: Implement intent logic
+        // MARK: - Implement your intent logic here
         return .result()
     }
 }

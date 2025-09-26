@@ -1,7 +1,6 @@
 import AppIntents
-import Foundation
-import Foundation
 import CoreData
+import Foundation
 
 struct TranslateTextIntent: AppIntent {
     static var title: LocalizedStringResource = "Translate text between languages"
@@ -22,7 +21,7 @@ struct TranslateTextIntent: AppIntent {
             throw IntentKitError.missingParameter("targetLanguage")
         }
 
-        // TODO: Implement intent logic
+        // MARK: - Implement your intent logic here
         return .result()
     }
 }

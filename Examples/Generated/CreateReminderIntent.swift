@@ -1,7 +1,6 @@
 import AppIntents
-import Foundation
-import Foundation
 import CoreData
+import Foundation
 
 struct CreateReminderIntent: AppIntent {
     static var title: LocalizedStringResource = "Create a new reminder"
@@ -30,7 +29,7 @@ struct CreateReminderIntent: AppIntent {
             }
         }
 
-        // TODO: Implement intent logic
+        // MARK: - Implement your intent logic here
         return .result()
     }
 }

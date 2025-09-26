@@ -1,7 +1,6 @@
 import AppIntents
-import Foundation
-import Foundation
 import CoreData
+import Foundation
 
 struct SendMessageIntent: AppIntent {
     static var title: LocalizedStringResource = "Send a message to a contact"
@@ -23,7 +22,7 @@ struct SendMessageIntent: AppIntent {
             throw IntentKitError.missingParameter("message")
         }
 
-        // TODO: Implement intent logic
+        // MARK: - Implement your intent logic here
         return .result()
     }
 }

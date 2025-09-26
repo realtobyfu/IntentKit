@@ -32,12 +32,21 @@ public final class IntentCodeGenerator {
     private func generateIntent(_ schema: IntentSchema, manifest: IntentManifest) -> String {
         var code = CodeBuilder()
 
-        code.addLine("import AppIntents")
-        code.addLine("import Foundation")
+        // Collect all imports and deduplicate
+        var importSet = Set<String>()
+        importSet.insert("AppIntents")
+        importSet.insert("Foundation")
+
         if let imports = manifest.metadata?.importStatements {
             for importStatement in imports {
-                code.addLine("import \(importStatement)")
+                importSet.insert(importStatement)
             }
+        }
+
+        // Add imports in consistent order
+        let sortedImports = importSet.sorted()
+        for importModule in sortedImports {
+            code.addLine("import \(importModule)")
         }
         code.addBlankLine()
 
@@ -131,7 +140,7 @@ public final class IntentCodeGenerator {
             }
         }
 
-        code.addLine("// TODO: Implement intent logic")
+        code.addLine("// MARK: - Implement your intent logic here")
         code.addLine("return .result()")
 
         code.outdent()
@@ -292,6 +301,7 @@ private struct CodeBuilder {
     }
 
     func build() -> String {
-        return lines.joined(separator: "\n")
+        // Ensure exactly one trailing newline
+        return lines.joined(separator: "\n") + "\n"
     }
 }

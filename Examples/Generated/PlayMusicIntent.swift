@@ -1,7 +1,6 @@
 import AppIntents
-import Foundation
-import Foundation
 import CoreData
+import Foundation
 
 struct PlayMusicIntent: AppIntent {
     static var title: LocalizedStringResource = "Play music by artist or playlist"
@@ -25,7 +24,7 @@ struct PlayMusicIntent: AppIntent {
             }
         }
 
-        // TODO: Implement intent logic
+        // MARK: - Implement your intent logic here
         return .result()
     }
 }

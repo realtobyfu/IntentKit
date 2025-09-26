@@ -8,7 +8,8 @@
       "Bash(swift test:*)",
       "WebFetch(domain:swiftpackageindex.com)",
       "Bash(swift package:*)",
-      "Bash(gh auth:*)"
+      "Bash(gh auth:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

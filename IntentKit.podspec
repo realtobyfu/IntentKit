@@ -9,11 +9,11 @@ Features include type-safe parameter helpers, async resolution, intent donation 
 execution wrappers with retry logic, and code generation from YAML/JSON schemas.
                        DESC
 
-  s.homepage         = 'https://github.com/yourusername/IntentKit'
+  s.homepage         = 'https://github.com/realtobyfu/IntentKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'IntentKit Contributors' => 'your-email@example.com' }
-  s.source           = { :git => 'https://github.com/yourusername/IntentKit.git', :tag => s.version.to_s }
-  s.social_media_url = 'https://twitter.com/yourusername'
+  s.author           = { 'IntentKit Contributors' => 'contact@intentkit.dev' }
+  s.source           = { :git => 'https://github.com/realtobyfu/IntentKit.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://github.com/realtobyfu'
 
   s.swift_version = '5.9'
   s.ios.deployment_target = '16.0'
