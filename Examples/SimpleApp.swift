@@ -152,7 +152,16 @@ struct IntentKitExample {
         print("🚀 IntentKit Example App")
         print("=" .padding(toLength: 40, withPad: "=", startingAt: 0))
 
-        // Example 1: Execute Message Intent
+        await executeMessageIntent()
+        await executeCreateNoteIntent()
+        await executeTimerIntent()
+        await performBatchDonation()
+        showMetrics()
+
+        print("\n✨ IntentKit Example Complete!")
+    }
+
+    private static func executeMessageIntent() async {
         print("\n📱 Executing Message Intent:")
         let messageIntent = MessageIntent()
         messageIntent.recipient = "Alice"
@@ -172,8 +181,9 @@ struct IntentKitExample {
         } catch {
             print("❌ Message intent failed: \(error)")
         }
+    }
 
-        // Example 2: Execute Create Note Intent
+    private static func executeCreateNoteIntent() async {
         print("\n📝 Executing Create Note Intent:")
         let noteIntent = CreateNoteIntent()
         noteIntent.noteTitle = "IntentKit Demo"
@@ -185,8 +195,9 @@ struct IntentKitExample {
         } catch {
             print("❌ Note intent failed: \(error)")
         }
+    }
 
-        // Example 3: Execute Timer Intent
+    private static func executeTimerIntent() async {
         print("\n⏱ Executing Timer Intent:")
         let timerIntent = SetTimerIntent()
         timerIntent.duration = 5
@@ -197,9 +208,24 @@ struct IntentKitExample {
         } catch {
             print("❌ Timer intent failed: \(error)")
         }
+    }
 
-        // Example 4: Batch Donation
+    private static func performBatchDonation() async {
         print("\n📤 Performing Batch Donation:")
+        let messageIntent = MessageIntent()
+        messageIntent.recipient = "Alice"
+        messageIntent.message = "Hello from IntentKit!"
+        messageIntent.isUrgent = false
+
+        let noteIntent = CreateNoteIntent()
+        noteIntent.noteTitle = "IntentKit Demo"
+        noteIntent.content = "This is a demonstration of IntentKit framework"
+        noteIntent.category = "Work"
+
+        let timerIntent = SetTimerIntent()
+        timerIntent.duration = 5
+        timerIntent.label = "Demo Timer"
+
         let intents: [any AppIntent] = [
             messageIntent,
             noteIntent,
@@ -214,8 +240,9 @@ struct IntentKitExample {
         } catch {
             print("❌ Donation failed: \(error)")
         }
+    }
 
-        // Show metrics
+    private static func showMetrics() {
         print("\n📊 Execution Metrics:")
         if let avgTime = ExecutionMetrics.shared.averageExecutionTime(for: "MessageIntent") {
             print("   MessageIntent avg time: \(String(format: "%.3f", avgTime))s")
@@ -223,8 +250,6 @@ struct IntentKitExample {
         if let successRate = ExecutionMetrics.shared.successRate(for: "MessageIntent") {
             print("   MessageIntent success rate: \(String(format: "%.1f", successRate * 100))%")
         }
-
-        print("\n✨ IntentKit Example Complete!")
     }
 }
 

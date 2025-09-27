@@ -170,7 +170,7 @@ class IntentExamples: XCTestCase {
 
         // Create test expectations
         let expectations = [
-            IntentExpectation<BasicExampleIntent> { intent, result in
+            IntentExpectation<BasicExampleIntent> { intent, _ in
                 XCTAssertEqual(intent.name, "Test User")
                 XCTAssertEqual(intent.age, 25)
             }

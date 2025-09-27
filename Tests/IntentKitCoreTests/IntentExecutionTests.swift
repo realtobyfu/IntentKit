@@ -103,7 +103,7 @@ final class IntentExecutionTests: XCTestCase {
         let intent = TestExecutableIntent()
         intent.input = "test"
 
-        let expectation = IntentExpectation<TestExecutableIntent> { intent, result in
+        let expectation = IntentExpectation<TestExecutableIntent> { intent, _ in
             XCTAssertEqual(intent.input, "test")
         }
 

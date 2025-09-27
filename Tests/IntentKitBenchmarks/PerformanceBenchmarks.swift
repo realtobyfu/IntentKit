@@ -30,8 +30,8 @@ final class PerformanceBenchmarks: XCTestCase {
 
     func testRangeValidationPerformance() {
         measure {
-            for i in 0..<1000 {
-                let value = i % 100
+            for index in 0..<1000 {
+                let value = index % 100
                 do {
                     _ = try RangeValidatedParameter(value: value, range: 0...99)
                 } catch {
