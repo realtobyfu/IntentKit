@@ -70,8 +70,9 @@ public final class IntentDonationManager {
         }
 
         if !errors.isEmpty {
+            let errorDescriptions = errors.map { $0.localizedDescription }.joined(separator: ", ")
             throw IntentKitError.donationFailed(
-                "Failed to donate \(errors.count) intents: \(errors.map { $0.localizedDescription }.joined(separator: ", "))"
+                "Failed to donate \(errors.count) intents: \(errorDescriptions)"
             )
         }
     }

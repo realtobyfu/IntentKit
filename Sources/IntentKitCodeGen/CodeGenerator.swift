@@ -147,7 +147,11 @@ public final class IntentCodeGenerator {
         code.addLine("}")
     }
 
-    private func generateValidation(_ parameter: ParameterSchema, validation: ValidationSchema, to code: inout CodeBuilder) {
+    private func generateValidation(
+        _ parameter: ParameterSchema,
+        validation: ValidationSchema,
+        to code: inout CodeBuilder
+    ) {
         let varName = parameter.isOptional ? "if let \(parameter.name) = \(parameter.name)" : "do"
 
         if let minValue = validation.minValue {
@@ -181,7 +185,8 @@ public final class IntentCodeGenerator {
             code.addLine("let allowed = [\(valuesString)]")
             code.addLine("if !allowed.contains(\(parameter.name)) {")
             code.indent()
-            code.addLine("throw IntentKitError.validationFailed(\"\(parameter.name) must be one of: \\(allowed.joined(separator: \", \"))\")")
+            let msg = "\(parameter.name) must be one of: \\(allowed.joined(separator: \", \"))"
+            code.addLine("throw IntentKitError.validationFailed(\"\(msg)\")")
             code.outdent()
             code.addLine("}")
             code.outdent()

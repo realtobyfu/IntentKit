@@ -9,7 +9,14 @@
       "WebFetch(domain:swiftpackageindex.com)",
       "Bash(swift package:*)",
       "Bash(gh auth:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(swiftlint lint:*)",
+      "Bash(python3:*)",
+      "Bash(cat:*)",
+      "Bash(for:*)",
+      "Bash(do echo \"=== $file ===\")",
+      "Bash(tail:*)",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []
