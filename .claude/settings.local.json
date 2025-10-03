@@ -16,7 +16,8 @@
       "Bash(for:*)",
       "Bash(do echo \"=== $file ===\")",
       "Bash(tail:*)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(swiftc:*)"
     ],
     "deny": [],
     "ask": []
