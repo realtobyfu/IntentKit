@@ -1,6 +1,5 @@
 import Foundation
 import AppIntents
-import XCTest
 
 public protocol IntentExecutable {
     associatedtype Intent: AppIntent
